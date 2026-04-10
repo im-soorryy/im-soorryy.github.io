@@ -1,0 +1,120 @@
+html {
+  scrollbar-width: none;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    min-height: 100vh;
+    margin: 0;
+    color: #374151;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* This changes the selection color for the entire website */
+::selection {
+    background-color: #c48080; /* The highlight background color */
+    color: #ffffff;              /* The text color when highlighted */
+}
+
+/* For older browsers (Firefox) */
+::-moz-selection {
+    background-color: #c48080;
+    color: white;
+}
+
+.cursive {
+    font-family: 'Dancing Script', cursive;
+}
+
+.petal {
+    position: fixed;
+    background-color: #fecdd3;
+    border-radius: 150% 0 150% 0;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 2rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    opacity: 0;
+}
+
+#typewriter-container {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    display: block;      /* Ensures it takes full width */
+    padding-left: 0;     /* Forces zero space on the left */
+    text-indent: 0;      /* Explicitly removes paragraph indents */
+}
+
+/* Sometimes the span itself adds a tiny gap */
+#apology-text {
+    margin-left: 0;
+    padding: 32px 0px 32px 32px;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heart-beat {
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10%, 30% { transform: scale(1.1); }
+    20% { transform: scale(1.15); }
+}
+
+.typewriter-cursor::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #fb7185;
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 640px) {
+    h1 { font-size: 2.75rem !important; }
+    .glass-card { padding: 1.5rem !important; }
+}
+
+.btn-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.btn-reveal {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+}
